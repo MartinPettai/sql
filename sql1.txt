@@ -1,0 +1,33 @@
+andmebaasi lisamine: sqlite3 epood_mpettai.db
+
+tabel
+CREATE TABLE epood_mpettai.mpettai (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nimi VARCHAR(255) NOT NULL,
+    perenimi VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    car_make VARCHAR(255) NOT NULL,
+    car_model VARCHAR(255) NOT NULL,
+    car_year YEAR(4) NOT NULL,
+    car_price DECIMAL(8,2) NOT NULL
+);
+
+
+sqlite> INSERT INTO mpettai(nimi,perenimi,email,car_make,car_model,car_year,car_price)
+   ...> VALUES('Martin','Pettai','martinpettai@gmail.com','ferrari','f80',2022,200.000.000);
+
+sqlite> INSERT INTO mpettai(nimi,perenimi,email,car_make,car_model,car_year,car_price)
+   ...> VALUES('sdd','fff','ssdfff@gmail.com','roller','hiinakas',2023,250);
+
+sqlite> INSERT INTO mpettai(nimi,perenimi,email,car_make,car_model,car_year,car_price)
+   ...> VALUES('tsau','plau','tsauplau@gmail.com','hallo','jorss',1999,600.00);
+
+genereerisin tuhande kasutaja andmed ja panin need enda tabelisse:
+
+.mode csv
+.import /MOCK_DATA.csv mpettai
+SELECT * FROM mpettai;
+.mode column;
+SELECT * FROM mpettai;
+
+ vsjo kõik
