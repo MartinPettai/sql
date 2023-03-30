@@ -1,0 +1,28 @@
+ülesanne 2 
+
+Muuda enda lisatud automargiks Zaporožets
+
+sqlite> UPDATE mpettai SET car_make='Zaporožets' WHERE id=1;
+
+Muuda kõik Cadillac margid Citroën’iks
+sqlite> UPDATE mpettai SET car_make='Citroen' WHERE car_make='Cadillac';
+
+
+Kustuta ära read, mille ID on 5, 10 ja 15
+
+sqlite> DELETE FROM mpettai WHERE id=5;
+sqlite> DELETE FROM mpettai WHERE id=10;
+sqlite> DELETE FROM mpettai WHERE id=15;
+
+Kuva read, kus on ainult ID, perenimi, automark ja aasta, sorteeri ID järgi kasvavalt
+
+sqlite> SELECT ID, perenimi, car_make, car_year FROM mpettai ORDER BY ID ASC;
+
+Kuva 10 rida autosid, kus kliendi perenimi hakkab sama algustähega, mis sul, sorteeri autod aasta järgi kahanevalt
+
+sqlite> SELECT * FROM mpettai WHERE perenimi LIKE 'P%' ORDER BY car_year DESC LIMIT 10;
+
+Kuva 2 vabalt valitud automarki sisaldavad read ja ületavad mingit summat
+
+sqlite> SELECT * FROM mpettai WHERE car_make IN ('Dodge', 'Mitsubishi') AND car_price > 100000;
+
